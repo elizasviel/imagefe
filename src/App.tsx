@@ -25,13 +25,16 @@ const App = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ params }),
-      });
+      const response = await fetch(
+        "https://imagebe-b46ae61373e6.herokuapp.com/generate",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ params }),
+        }
+      );
 
       const data = await response.json();
       if (data.imageUrl) {
